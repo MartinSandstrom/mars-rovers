@@ -21,7 +21,7 @@ describe('DataParser ', () => {
 		let testParser = new DataParser();
 	});
 
-	it('can be parseData correct', () => {
+	it('can be parse data correct', () => {
 		parser = new DataParser();
 		let parsedData = parser.parse(testData);
 		expect(parsedData.maxX).toBe(5);

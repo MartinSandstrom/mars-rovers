@@ -114,7 +114,7 @@ describe('Rover - basic functions', () => {
 	});
 });
 
-describe('rover - nothing allowed before placed', () => {
+describe('Rover - nothing allowed before placed', () => {
 	it('can not report if not placed', () => {
 		try {
 			let testrover = new MarsRover(4, 4);
@@ -153,7 +153,7 @@ describe('rover - nothing allowed before placed', () => {
 	});
 });
 
-describe('rover - examples', () => {
+describe('Rover - examples', () => {
 
 	it('can run example A', () => {
 		rover.place(0, 0, 'N');

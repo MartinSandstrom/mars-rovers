@@ -12,7 +12,7 @@ describe('NASARoverPlacer ', () => {
 		let placer = new NASARoverPlacer();
 	});
 
-	it('can be parseData correct', () => {
+	it('can be place rovers correct', () => {
 		let placer = new NASARoverPlacer();
 		let output = placer.placeRovers(inputData);
 		expect(output.length).toBe(2);
