@@ -31,6 +31,7 @@ To use this app you need to install NodeJS and NPM.
 * Rover cannot fall off the curiously rectangular plateau but ignored calls that would result in a fall off
 * Rover cannot move or report before being placed
 * Rover cannot be placed outside of the initial grid
+* Rover can take one command at the time and not an array of commands
 * Created a new rover for every instrcution even though it could have reused the same rover and placed it on a new spot. Assuming that it was a lot of rovers and not one rover with a lot of instructions
 
 ## Design choises
@@ -49,3 +50,4 @@ To use this app you need to install NodeJS and NPM.
 * Overall refactoring
 * Build a grid and send it as inuput to the Rover to walk on
 * Build visual graphics
+* Change the rover to take the array of commands and not be single instructed?
