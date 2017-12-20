@@ -6,7 +6,7 @@ let nasaRoverPlacer = new NasaRoverPlacer();
 
 fs.readFile("testData.txt", "utf8", function (error, data) {
 	if (error) {
-		console.log('Error reading the testData', error);
+		console.log('Error reading the testData: ', error);
 	}
 	let parsedData = dataParser.parse(data);
 	let outputData = nasaRoverPlacer.placeRovers(parsedData);

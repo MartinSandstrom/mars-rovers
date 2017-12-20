@@ -28,8 +28,10 @@ To use this app you need to install NodeJS and NPM.
 
 ## Assumptions and thoughts
 
-* Robot cannot fall off the curiously rectangular plateau but ignored calls that would result in a fall off
-* Created a new rover for every instrcution even though it could have reused the same rover and placed it on a new spot. Assuming that it was a lot of rovers and not one rover with a lot of instructions.
+* Rover cannot fall off the curiously rectangular plateau but ignored calls that would result in a fall off
+* Rover cannot move or report before being placed
+* Rover cannot be placed outside of the initial grid
+* Created a new rover for every instrcution even though it could have reused the same rover and placed it on a new spot. Assuming that it was a lot of rovers and not one rover with a lot of instructions
 
 ## Design choises
 
@@ -39,4 +41,11 @@ To use this app you need to install NodeJS and NPM.
 
 ## Library choises
 
-* Jest is just elegant and easy, it scales really good for building more complex tests in the future without any additional packages. Jest is also super fast, no one like to spend a minute waiting for the tests to pass
+* Jest; is just elegant and easy, it scales really good for building more complex tests in the future without any additional packages. Jest is also super fast, no one like to spend a minute waiting for the tests to pass
+
+## Todos / improvements
+
+* Refactor the dataparser and write more tests
+* Overall refactoring
+* Build a grid and send it as inuput to the Rover to walk on
+* Build visual graphics
