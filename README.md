@@ -1,4 +1,4 @@
-# Mars rover
+# Mars rovers
 
 ## Usage
 
