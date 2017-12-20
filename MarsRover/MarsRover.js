@@ -81,7 +81,7 @@ class MarsRover {
 	}
 
 	getDirection(currentIndex, defaultIndex) {
-		return this.directions[currentIndex] ? this.directions[currentIndex] : this.directions[defaultIndex]
+		return this.directions[currentIndex] ? this.directions[currentIndex] : this.directions[defaultIndex];
 	}
 
 	isValidPosition(x, y) {
