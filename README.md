@@ -28,14 +28,14 @@ To use this app you need to install NodeJS and NPM.
 
 ## Assumptions and thoughts
 
-* Robot cannot fall off the curiously rectangular plateau but ignored calls that would result in it falling off
+* Robot cannot fall off the curiously rectangular plateau but ignored calls that would result in a fall off
 * Created a new rover for every instrcution even though it could have reused the same rover and placed it on a new spot. Assuming that it was a lot of rovers and not one rover with a lot of instructions.
 
 ## Design choises
 
 * Ambivalent if the grid should have been its own object and created and reused by every rover. Since there were no visual output on the grid, maxX and maxY was used to calculate the grid
 
-* Decided to build all parts of the application modular
+* Decided to build all parts of the application modular for reusability, testability
 
 ## Library choises
 
