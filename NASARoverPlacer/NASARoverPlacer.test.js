@@ -9,12 +9,12 @@ let inputData = {
 
 describe('NASARoverPlacer ', () => {
 	it('can be constructed', () => {
-		let walker = new NASARoverPlacer();
+		let placer = new NASARoverPlacer();
 	});
 
 	it('can be parseData correct', () => {
-		let walker = new NASARoverPlacer();
-		let output = walker.placeRovers(inputData);
+		let placer = new NASARoverPlacer();
+		let output = placer.placeRovers(inputData);
 		expect(output.length).toBe(2);
 		expect(output[0]).toBe('1 3 N');
 		expect(output[1]).toBe('5 1 E');
