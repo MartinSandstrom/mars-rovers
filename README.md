@@ -28,7 +28,7 @@ To use this app you need to install NodeJS and NPM.
 
 ## Assumptions and thoughts
 
-* Robot cannot fall off the curiously rectangular plateau
+* Robot cannot fall off the curiously rectangular plateau but ignored calls that would result in it falling off
 * Created a new rover for every instrcution even though it could have reused the same rover and placed it on a new spot. Assuming that it was a lot of rovers and not one rover with a lot of instructions.
 
 ## Design choises
