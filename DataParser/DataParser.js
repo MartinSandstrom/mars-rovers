@@ -14,7 +14,7 @@ class DataParser {
 	}
 	getRovers(instructions) {
 		let rovers = [];
-		for(let i = 0; i < instructions.length; i = i + 2) {
+		for (let i = 0; i < instructions.length; i = i + 2) {
 			let roverPlacement = instructions[i].split(' ');
 			let roverDirections = instructions[i + 1];
 			let roverObj = {

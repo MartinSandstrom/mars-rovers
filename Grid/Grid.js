@@ -6,7 +6,7 @@ class Grid {
 		this.minY = 0;
 	}
 	isValidPosition(x, y) {
-		return (x >= this.minY && x <= this.maxX) && (y >= 0 && y <= this.maxY) ;
+		return (x >= this.minY && x <= this.maxX) && (y >= this.minY && y <= this.maxY);
 	}
 }
 

@@ -54,29 +54,25 @@ class MarsRover {
 	}
 
 	moveNorth() {
-		let y = parseInt(this.y) + 1;
-		if (this.grid.isValidPosition(this.x, y)) {
+		if (this.grid.isValidPosition(this.x, this.y + 1)) {
 			this.y++;
 		}
 	}
 
 	moveSouth() {
-		let y = parseInt(this.y) - 1;
-		if (this.grid.isValidPosition(this.x, y)) {
+		if (this.grid.isValidPosition(this.x, this.y - 1)) {
 			this.y--;
 		}
 	}
 
 	moveWest() {
-		let x = parseInt(this.x) - 1;
-		if (this.grid.isValidPosition(x, this.y)) {
+		if (this.grid.isValidPosition(this.x - 1, this.y)) {
 			this.x--;
 		}
 	}
 
 	moveEast() {
-		let x = parseInt(this.x) + 1;
-		if (this.grid.isValidPosition(x, this.y)) {
+		if (this.grid.isValidPosition(this.x + 1, this.y)) {
 			this.x++;
 		}
 	}
