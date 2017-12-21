@@ -5,6 +5,14 @@ class DataParser {
 		let firstInstruction = instructions.shift();
 		let maxX = parseInt(firstInstruction.split(' ')[0]);
 		let maxY = parseInt(firstInstruction.split(' ')[1]);
+		let rovers = this.getRovers(instructions);
+		return {
+			maxY,
+			maxX,
+			rovers
+		}
+	}
+	getRovers(instructions) {
 		let rovers = [];
 		for(let i = 0; i < instructions.length; i = i + 2) {
 			let roverPlacement = instructions[i].split(' ');
@@ -17,11 +25,7 @@ class DataParser {
 			};
 			rovers.push(roverObj);
 		}
-		return {
-			maxY,
-			maxX,
-			rovers
-		}
+		return rovers;
 	}
 }
 

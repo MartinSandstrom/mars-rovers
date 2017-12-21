@@ -5,20 +5,23 @@ class NASARoverPlacer {
 		return parsedData.rovers.map(ri => {
 			let rover = new MarsRover(parsedData.maxX, parsedData.maxY);
 			rover.place(ri.x, ri.y, ri.f);
-			ri.roverDirections.split('').forEach((instruction) => {
-				switch (instruction) {
-					case 'M':
-						rover.move();
-						break;
-					case 'L':
-						rover.left();
-						break;
-					case 'R':
-						rover.right();
-						break;
-				}
-			});
+			this.runRoverInstructions(ri, rover);
 			return rover.report();
+		});
+	}
+	runRoverInstructions(ri, rover) {
+		ri.roverDirections.split('').forEach((instruction) => {
+			switch (instruction) {
+				case 'M':
+					rover.move();
+					break;
+				case 'L':
+					rover.left();
+					break;
+				case 'R':
+					rover.right();
+					break;
+			}
 		});
 	}
 }

@@ -1,25 +1,24 @@
+let Grid = require('../Grid/Grid.js');
+let Direction = require('../Direction/Direction.js');
+
 class MarsRover {
 	constructor(maxX, maxY) {
-		this.maxY = maxY;
-		this.maxX = maxX;
-		this.x = 0;
-		this.y = 0;
+		this.grid = new Grid(maxX, maxY);
+		this.direction = new Direction();
 		this.hasBeenPlaced = false;
-		this.directions = ['N', 'E', 'S', 'W'];
 	}
 
 	place(x, y, f) {
-		if (this.directions.includes(f)) {
-			this.f = f;
+		if (this.direction.directions.includes(f)) {
+			this.direction.setFacing(f);
 		} else {
 			throw Error('Invalid faceing');
 		}
-		if (!this.isValidPosition(x, y)) {
+		if (!this.grid.isValidPosition(x, y)) {
 			throw Error('Invalid position');
 		}
 		this.x = x;
 		this.y = y;
-
 		this.hasBeenPlaced = true;
 	}
 
@@ -31,34 +30,54 @@ class MarsRover {
 		if (!this.hasBeenPlaced) {
 			return this.notPlacedError();
 		}
-		return `${this.x} ${this.y} ${this.f}`;
+		return `${this.x} ${this.y} ${this.direction.f}`;
 	}
 
 	move() {
 		if (!this.hasBeenPlaced) {
 			return this.notPlacedError();
 		}
-		switch (this.f) {
+		switch (this.direction.f) {
 			case 'N':
-				if (this.isValidPosition(this.x, parseInt(this.y) + 1)) {
-					this.y++;
-				}
+				this.moveNorth();
 				break;
 			case 'S':
-				if (this.isValidPosition(this.x, parseInt(this.y) - 1)) {
-					this.y--;
-				}
+				this.moveSouth();
 				break;
 			case 'W':
-				if (this.isValidPosition(parseInt(this.x) - 1, this.y)) {
-					this.x--;
-				}
+				this.moveWest();
 				break;
 			case 'E':
-				if (this.isValidPosition(parseInt(this.x) + 1, this.y)) {
-					this.x++;
-				}
+				this.moveEast();
 				break;
+		}
+	}
+
+	moveNorth() {
+		let y = parseInt(this.y) + 1;
+		if (this.grid.isValidPosition(this.x, y)) {
+			this.y++;
+		}
+	}
+
+	moveSouth() {
+		let y = parseInt(this.y) - 1;
+		if (this.grid.isValidPosition(this.x, y)) {
+			this.y--;
+		}
+	}
+
+	moveWest() {
+		let x = parseInt(this.x) - 1;
+		if (this.grid.isValidPosition(x, this.y)) {
+			this.x--;
+		}
+	}
+
+	moveEast() {
+		let x = parseInt(this.x) + 1;
+		if (this.grid.isValidPosition(x, this.y)) {
+			this.x++;
 		}
 	}
 
@@ -66,30 +85,14 @@ class MarsRover {
 		if (!this.hasBeenPlaced) {
 			return this.notPlacedError();
 		}
-		let currentIndex = this.getCurrentIndexOfF();
-		currentIndex++;
-		this.f = this.getDirection(currentIndex, 0);
+		this.direction.right();
 	}
 
 	left() {
 		if (!this.hasBeenPlaced) {
 			return this.notPlacedError();
 		}
-		let currentIndex = this.getCurrentIndexOfF();
-		currentIndex--;
-		this.f = this.getDirection(currentIndex, 3);
-	}
-
-	getDirection(currentIndex, defaultIndex) {
-		return this.directions[currentIndex] ? this.directions[currentIndex] : this.directions[defaultIndex];
-	}
-
-	isValidPosition(x, y) {
-		return (x >= 0 && x <= this.maxX) && (y >= 0 && y <= this.maxY) ;
-	}
-
-	getCurrentIndexOfF() {
-		return this.directions.indexOf(this.f);
+		this.direction.left();
 	}
 }
 

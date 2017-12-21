@@ -1,14 +1,15 @@
-const MarsRover = require('./MarsRover');
+let MarsRover = require('./MarsRover');
 let rover = {};
 
 describe('Rover - basic functions', () => {
+
 	beforeEach(() => {
 		rover = new MarsRover(4, 4);
 		rover.place(1, 1, 'N');
 	});
 
 	it('can be constructed', () => {
-		let testRover = new MarsRover(5,5);
+		let testRover = new MarsRover(5, 5);
 	});
 
 	it('can be placed', () => {
@@ -94,9 +95,89 @@ describe('Rover - basic functions', () => {
 	});
 
 	it('can move', () => {
-
 		rover.move();
 		let expectedReport = '1 2 N';
+		let report = rover.report();
+		expect(report).toBe(expectedReport);
+	});
+
+	it('can move north', () => {
+		rover.moveNorth();
+		let expectedReport = '1 2 N';
+		let report = rover.report();
+		expect(report).toBe(expectedReport);
+	});
+
+	it('can move west', () => {
+		rover.left();
+		rover.moveWest();
+		let expectedReport = '0 1 W';
+		let report = rover.report();
+		expect(report).toBe(expectedReport);
+	});
+
+	it('can move south', () => {
+		rover.left();
+		rover.left();
+		rover.moveSouth();
+		let expectedReport = '1 0 S';
+		let report = rover.report();
+		expect(report).toBe(expectedReport);
+	});
+
+	it('can move east', () => {
+		rover.right();
+		rover.moveEast();
+		rover.moveEast();
+		let expectedReport = '3 1 E';
+		let report = rover.report();
+		expect(report).toBe(expectedReport);
+	});
+
+	it('cannot move north if on the edge', () => {
+		rover.moveNorth();
+		rover.moveNorth();
+		rover.moveNorth();
+		rover.moveNorth();
+		rover.moveNorth();
+		let expectedReport = '1 4 N';
+		let report = rover.report();
+		expect(report).toBe(expectedReport);
+	});
+
+	it('cannot move west if on the edge', () => {
+		rover.left();
+		rover.moveWest();
+		rover.moveWest();
+		rover.moveWest();
+		rover.moveWest();
+		rover.moveWest();
+		let expectedReport = '0 1 W';
+		let report = rover.report();
+		expect(report).toBe(expectedReport);
+	});
+
+	it('cannot move south if on the edge', () => {
+		rover.right();
+		rover.right();
+		rover.moveSouth();
+		rover.moveSouth();
+		rover.moveSouth();
+		rover.moveSouth();
+		rover.moveSouth();
+		let expectedReport = '1 0 S';
+		let report = rover.report();
+		expect(report).toBe(expectedReport);
+	});
+
+	it('cannot move east if on the edge', () => {
+		rover.right();
+		rover.moveEast();
+		rover.moveEast();
+		rover.moveEast();
+		rover.moveEast();
+		rover.moveEast();
+		let expectedReport = '4 1 E';
 		let report = rover.report();
 		expect(report).toBe(expectedReport);
 	});
@@ -181,4 +262,5 @@ describe('Rover - examples', () => {
 		let report = rover.report();
 		expect(report).toBe(expectedReport);
 	});
+
 });
