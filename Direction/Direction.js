@@ -1,7 +1,6 @@
 class Direction {
 	constructor() {
 		this.directions = ['N', 'E', 'S', 'W'];
-		this.f = -1;
 	}
 
 	getDirection(currentIndex, defaultIndex) {
