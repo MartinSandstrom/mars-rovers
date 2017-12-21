@@ -1,8 +1,8 @@
 
 class MarsRover {
 	constructor(direction, grid) {
-		this.grid = grid;
 		this.direction = direction;
+		this.grid = grid;
 		this.hasBeenPlaced = false;
 	}
 
