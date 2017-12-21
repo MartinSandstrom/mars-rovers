@@ -1,5 +1,7 @@
 let NASARoverPlacer = require('./NASARoverPlacer');
 let MarsRover = require('../MarsRover/MarsRover.js');
+let Direction = require('../Direction/Direction.js');
+let Grid = require('../Grid/Grid.js');
 let nasaRoverPlacer = {};
 
 let inputData = {
@@ -28,7 +30,9 @@ describe('NASARoverPlacer ', () => {
 	});
 
 	it('can run the instructions correctly', () => {
-		let rover = new MarsRover(5, 5);
+		let direction = new Direction();
+		let grid = new Grid(5, 5);
+		let rover = new MarsRover(direction, grid);
 		rover.place(0, 0, 'N')
 		nasaRoverPlacer.runRoverInstructions(inputData.rovers[0], rover);
 		let report = rover.report();

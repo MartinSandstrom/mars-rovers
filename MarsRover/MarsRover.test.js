@@ -1,15 +1,21 @@
 let MarsRover = require('./MarsRover');
+let Direction = require('../Direction/Direction.js');
+let Grid = require('../Grid/Grid.js');
 let rover = {};
 
 describe('Rover - basic functions', () => {
 
 	beforeEach(() => {
-		rover = new MarsRover(4, 4);
+		let direction = new Direction();
+		let grid = new Grid(4, 4);
+		rover = new MarsRover(direction, grid);
 		rover.place(1, 1, 'N');
 	});
 
 	it('can be constructed', () => {
-		let testRover = new MarsRover(5, 5);
+		let direction = new Direction();
+		let grid = new Grid(4, 4);
+		let testRover = new MarsRover(direction, grid);
 	});
 
 	it('can be placed', () => {

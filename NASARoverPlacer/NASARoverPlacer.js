@@ -1,9 +1,13 @@
 let MarsRover = require('../MarsRover/MarsRover.js');
+let Direction = require('../Direction/Direction.js');
+let Grid = require('../Grid/Grid.js');
 
 class NASARoverPlacer {
 	placeRovers(parsedData) {
+		let grid = new Grid(parsedData.maxX, parsedData.maxY);
 		return parsedData.rovers.map(ri => {
-			let rover = new MarsRover(parsedData.maxX, parsedData.maxY);
+			let direction = new Direction();
+			let rover = new MarsRover(direction, grid);
 			rover.place(ri.x, ri.y, ri.f);
 			this.runRoverInstructions(ri, rover);
 			return rover.report();

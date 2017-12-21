@@ -1,10 +1,8 @@
-let Grid = require('../Grid/Grid.js');
-let Direction = require('../Direction/Direction.js');
 
 class MarsRover {
-	constructor(maxX, maxY) {
-		this.grid = new Grid(maxX, maxY);
-		this.direction = new Direction();
+	constructor(direction, grid) {
+		this.grid = grid;
+		this.direction = direction;
 		this.hasBeenPlaced = false;
 	}
 
